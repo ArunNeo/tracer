@@ -1,4 +1,4 @@
-class AddServerToTraceroute < ActiveRecord::Migration
+class AddServerToTracerouteAgain < ActiveRecord::Migration
   def change
     add_column :traceroutes, :server, :string
   end
