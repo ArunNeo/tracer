@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Local ip:</strong>
+  <%= @traceroute.local_ip %>
+</p>
+
+<p>
+  <strong>Stdout:</strong>
+  <%= @traceroute.stdout %>
+</p>
+
+<p>
+  <strong>Stderr:</strong>
+  <%= @traceroute.stderr %>
+</p>
+
+<p>
+  <strong>Exit status:</strong>
+  <%= @traceroute.exit_status %>
+</p>
+
+<p>
+  <strong>Timestamp:</strong>
+  <%= @traceroute.timestamp %>
+</p>
+
+<%= link_to 'Edit', edit_traceroute_path(@traceroute) %> |
+<%= link_to 'Back', traceroutes_path %>

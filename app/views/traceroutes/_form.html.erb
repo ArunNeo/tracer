@@ -1,0 +1,37 @@
+<%= form_for(@traceroute) do |f| %>
+  <% if @traceroute.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@traceroute.errors.count, "error") %> prohibited this traceroute from being saved:</h2>
+
+      <ul>
+      <% @traceroute.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :local_ip %><br>
+    <%= f.text_field :local_ip %>
+  </div>
+  <div class="field">
+    <%= f.label :stdout %><br>
+    <%= f.text_area :stdout %>
+  </div>
+  <div class="field">
+    <%= f.label :stderr %><br>
+    <%= f.text_area :stderr %>
+  </div>
+  <div class="field">
+    <%= f.label :exit_status %><br>
+    <%= f.text_area :exit_status %>
+  </div>
+  <div class="field">
+    <%= f.label :timestamp %><br>
+    <%= f.time_select :timestamp %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

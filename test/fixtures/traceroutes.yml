@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  local_ip: MyString
+  stdout: MyText
+  stderr: MyText
+  exit_status: MyText
+  timestamp: 2014-07-18 10:03:40
+
+two:
+  local_ip: MyString
+  stdout: MyText
+  stderr: MyText
+  exit_status: MyText
+  timestamp: 2014-07-18 10:03:40

@@ -1,0 +1,35 @@
+<h1>Listing traceroutes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Local ip</th>
+      <th>Stdout</th>
+      <th>Stderr</th>
+      <th>Exit status</th>
+      <th>Timestamp</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @traceroutes.each do |traceroute| %>
+      <tr>
+        <td><%= traceroute.local_ip %></td>
+        <td><%= traceroute.stdout %></td>
+        <td><%= traceroute.stderr %></td>
+        <td><%= traceroute.exit_status %></td>
+        <td><%= traceroute.timestamp %></td>
+        <td><%= link_to 'Show', traceroute %></td>
+        <td><%= link_to 'Edit', edit_traceroute_path(traceroute) %></td>
+        <td><%= link_to 'Destroy', traceroute, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Traceroute', new_traceroute_path %>
