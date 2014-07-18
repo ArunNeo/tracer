@@ -18,7 +18,7 @@
         <td align="center"><%= traceroute.local_ip %></td>
         <td align="left"><%= simple_format(traceroute.stdout) %></td>
         <td align="center"><%= traceroute.timestamp %></td>
-        <<td><%= link_to 'Destroy', traceroute, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', traceroute, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
