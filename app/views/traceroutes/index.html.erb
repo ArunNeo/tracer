@@ -20,8 +20,8 @@
       <tr>
         <td><%= traceroute.server %></td>
         <td><%= traceroute.local_ip %></td>
-        <td><%= traceroute.stdout %></td>
-        <td><%= traceroute.stderr %></td>
+        <td><%= simple_format(traceroute.stdout) %></td>
+        <td><%= simple_format(traceroute.stderr) %></td>
         <td><%= traceroute.exit_status %></td>
         <td><%= traceroute.timestamp %></td>
         <td><%= link_to 'Show', traceroute %></td>
