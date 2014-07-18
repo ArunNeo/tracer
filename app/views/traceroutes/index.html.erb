@@ -7,6 +7,7 @@
       <th>Local ip</th>
       <th>Traceroute Output</th>
       <th>Timestamp</th>
+      <th>Action</th>
     </tr>
   </thead>
 
@@ -17,6 +18,7 @@
         <td align="center"><%= traceroute.local_ip %></td>
         <td align="left"><%= simple_format(traceroute.stdout) %></td>
         <td align="center"><%= traceroute.timestamp %></td>
+        <<td><%= link_to 'Destroy', traceroute, method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
