@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>server</th>
       <th>Local ip</th>
       <th>Stdout</th>
       <th>Stderr</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @traceroutes.each do |traceroute| %>
       <tr>
+        <td><%= traceroute.server %></td>
         <td><%= traceroute.local_ip %></td>
         <td><%= traceroute.stdout %></td>
         <td><%= traceroute.stderr %></td>

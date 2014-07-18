@@ -1,5 +1,7 @@
 class TraceroutesController < ApplicationController
   before_action :set_traceroute, only: [:show, :edit, :update, :destroy]
+  respond_to :json
+  protect_from_forgery :except => :create
 
   # GET /traceroutes
   # GET /traceroutes.json
@@ -24,17 +26,33 @@ class TraceroutesController < ApplicationController
   # POST /traceroutes
   # POST /traceroutes.json
   def create
-    @traceroute = Traceroute.new(traceroute_params)
+    params[:traceroute].each do |tr|
+      Traceroute.create(:server => tr[:server], :local_ip => tr[:local_ip], :stdout => tr[:stdout], :stderr => tr[:stderr], :exit_status => tr[:exit_status], :timestamp => tr[:timestamp])
+    end
+
+
+
+    #puts "hello #{params}"
+    #@hello = params
+    #@hello.map { |k,v| puts "#{k} is #{v}" }
+    #traceroute_params.each do |v|
+    #  traceroute = Traceroute.create(v)
+    #end
 
     respond_to do |format|
-      if @traceroute.save
-        format.html { redirect_to @traceroute, notice: 'Traceroute was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @traceroute }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @traceroute.errors, status: :unprocessable_entity }
-      end
-    end
+       format.all { render :nothing => true, :status => 200 }
+     end
+    #@traceroute = Traceroute.new(params)
+
+    #respond_to do |format|
+    #  if @traceroute.save
+    #    format.html { redirect_to @traceroute, notice: 'Traceroute was successfully created.' }
+    #    format.json { render action: 'show', status: :created, location: @traceroute }
+    #  else
+    #    format.html { render action: 'new' }
+    #    format.json { render json: @traceroute.errors, status: :unprocessable_entity }
+    #  end
+    #end
   end
 
   # PATCH/PUT /traceroutes/1
@@ -68,7 +86,12 @@ class TraceroutesController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def traceroute_params
-      params.require(:traceroute).permit(:local_ip, :stdout, :stderr, :exit_status, :timestamp)
-    end
+
+  #{"traceroute"=>[{"local_ip"=>"54.191.183.40", "server"=>"www.appfolio.com", "timestamp"=>"2014-07-18 15:36:14 UTC", "stdout"=>"out", "stderr"=>"err",
+  #                 "exit_status"=>"0"}, {"local_ip"=>"54.191.183.40", "server"=>"www.google.com", "timestamp"=>"2014-07-18 15:36:26 UTC", "stdout"=>"out", "stderr"=>"err", "exit_status"=>"1"}]}
+
+
+    #def traceroute_params
+    #  params.require(:traceroute).permit(:server ,:local_ip, :stdout, :stderr, :exit_status, :timestamp)
+    #end
 end
