@@ -13,10 +13,10 @@
   <tbody>
     <% @traceroutes.each do |traceroute| %>
       <tr>
-        <td><%= traceroute.server %></td>
-        <td><%= traceroute.local_ip %></td>
-        <td><%= simple_format(traceroute.stdout) %></td>
-        <td><%= traceroute.timestamp %></td>
+        <td align="center"><%= traceroute.server %></td>
+        <td align="center"><%= traceroute.local_ip %></td>
+        <td align="center"><%= simple_format(traceroute.stdout) %></td>
+        <td align="center"><%= traceroute.timestamp %></td>
       </tr>
     <% end %>
   </tbody>
