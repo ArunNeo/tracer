@@ -5,13 +5,8 @@
     <tr>
       <th>server</th>
       <th>Local ip</th>
-      <th>Stdout</th>
-      <th>Stderr</th>
-      <th>Exit status</th>
+      <th>Traceroute Output</th>
       <th>Timestamp</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -21,17 +16,10 @@
         <td><%= traceroute.server %></td>
         <td><%= traceroute.local_ip %></td>
         <td><%= simple_format(traceroute.stdout) %></td>
-        <td><%= simple_format(traceroute.stderr) %></td>
-        <td><%= traceroute.exit_status %></td>
         <td><%= traceroute.timestamp %></td>
-        <td><%= link_to 'Show', traceroute %></td>
-        <td><%= link_to 'Edit', edit_traceroute_path(traceroute) %></td>
-        <td><%= link_to 'Destroy', traceroute, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Traceroute', new_traceroute_path %>
